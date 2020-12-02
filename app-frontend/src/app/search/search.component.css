@@ -1,0 +1,53 @@
+.data
+{
+    background-color:#025d81; /* For browsers that do not support gradients */
+
+    height: 10%;
+}
+.data p{
+  color:white;
+  margin-left: 15px;
+  margin-bottom:5px;
+}
+.intable
+{
+    background-color: #eeeeee;
+    margin:35px;
+    margin-top:70px;
+}
+.search
+{
+    margin-left: 15px;
+    margin-right: 15px;
+    border:1px solid rgb(0, 82, 150);
+    height: 500px;
+}
+.searchin
+{
+    height:auto;
+    background-color: rgb(219, 219, 248);
+    line-height: 25px;
+    height:25px;
+}
+.table
+{
+    display:table;
+    width:100%;
+    margin-top:20px
+}
+
+.table p
+{
+    height:25px;
+    font-size: 13px;
+    margin-left: 25px;
+}
+.forinput
+{
+    display:table-cell;
+    width: 75%;
+}
+.form-group input{
+    width:250px;
+    height: 25px
+}

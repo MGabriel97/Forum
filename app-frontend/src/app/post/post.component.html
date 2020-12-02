@@ -1,0 +1,106 @@
+
+  <div id="allpost">
+    <div class="chenar">
+
+    <div class="path">
+      <span  (click)="goToForumPage()">Forum</span> > 
+      <span (click)="goToSubForumPage()" >{{category}}</span> > 
+      <span  (click)="goToSubThreads()">{{subforum}}</span> >
+      <span  (click)="gotToPostPage()"><b>{{postName}}</b></span>
+
+   </div> 
+    <p style="margin-left:35px;margin-bottom: 5px;"><b>Thread: <a (click)="gotToPostPage()" routerLinkActive="active current" routerLink="/post" style="color:#759cae">{{Post.namePost}}</a></b></p>
+    <div class="post"  >
+      <div class="data" >
+        <p>{{Post.dateTime}}</p>
+      </div>
+      <div class="postcolor">
+        <div class="postmargin">
+          <div class="postleft" style="margin-top:-10px">
+            <dl >
+              <p >{{Post.user.username}}</p>
+              <img [src]="Post.image" style="float:left;margin-top:-10px" >
+              <br> <br> <br>
+              <div  style="float:left">
+              <dt >Join Date:</dt>
+              <dd >{{Post.user.joinDate}}</dd>
+              <dt >E-mail:</dt>
+              <dd >{{Post.user.email}}</dd>
+              <dt >Location:</dt>
+              <dd >{{Post.user.location}}</dd>
+            </div>
+            </dl>
+          </div>
+        <div class="postright">
+          <dl>
+           <h2>{{Post.namePost}}</h2>
+            <p>{{Post.dataPost}}</p>
+         </dl>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="post" *ngFor="let i of Reply | paginate: config">
+      <div class="data">
+        <p>{{i.dateTime}}</p>
+      </div>
+      <div class="postcolor">
+        <div class="postmargin">
+          <div class="postleft" style="margin-top:-10px">
+            <dl >
+              <p  >{{i.user.username}}</p>
+             <img [src]="i.image" style="float:left;margin-top:-10px" >
+              <br>
+              <div  style="float:left">
+
+              <dt >Join Date:</dt>
+              <dd >{{i.user.joinDate}}</dd>
+              <dt >E-mail:</dt>
+              <dd >{{i.user.email}}</dd>
+              <dt >Location:</dt>
+              <dd >{{i.user.location}}</dd>
+              </div>
+            </dl>
+          </div>
+        <div class="postright">
+          <dl>
+            <p>{{i.dataPost}}</p>
+         </dl>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+    <div class="reply" *ngIf="auth=='true'"> 
+      <div class="btn-group btn-group-toggle">
+        <label class="btn-primary" ngbButtonLabel>
+          <input type="checkbox" (click)="createInput()"> Reply to post
+            
+        </label>
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="textmargin" *ngIf="input" style="margin-left:35px;margin-right:20%;    border:  solid 1px #025d81;">
+    <div class="data">
+      <p>Quick Reply</p>
+    </div>
+  <div class="inputok"  style="margin-left: 40px;margin-top: 15px;">
+    <textarea id="dataPost"  rows="4" cols="1" class="form-control" ngModel name="dataPost" #ref></textarea>
+    <div class="btn-group btn-group-toggle">
+      <label class="btn-primary" ngbButtonLabel>
+        <input type="checkbox" (click)="addReply(ref.value)"> Post reply to post
+      </label>
+      <label class="btn-primary" ngbButtonLabel style="margin-left: 2px;">
+      <input type="checkbox"  (click)="cancelReply()"> Cancel
+    </label>
+    </div>
+
+  </div>
+  </div>
+  </div>
+
+  

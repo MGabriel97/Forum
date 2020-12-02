@@ -1,0 +1,82 @@
+<div class="intable"  >
+    <a  routerLinkActive="active current"  routerLink="/search" style="margin-left: 15px;font-size: 13px;"><b>Advanced Search</b></a>
+    <button class="btn btn-primary btn-lg active" style="margin-left:15px;margin-right:80%;margin-top:90px;border:1px solid rgb(0, 82, 150)" >
+        
+          <div style="font-size: 13px;">Search multiple content</div>
+             
+    </button>
+    <div class="search">
+        <div class="searchin">
+            <p style="font-size: 13px;margin-left: 10px;"><b>Search in</b></p>
+        </div>
+        <p style="font-size: 13px;margin-left: 20px;margin-top: 15px;display:inline-block;">Search types</p>
+        <select [(ngModel)]="selectedValue" style="color:white;margin-left: 4px;display:inline-block; background-color:#025d81;">
+            <option style="display: inline;" *ngFor="let c of selectPost" [ngValue]="c" style="color:white">{{c}}</option>
+          </select>
+        
+        <div class="searchin">
+            <p style="font-size: 13px;margin-left: 10px;"><b>Search for</b></p>
+        </div>
+        <div *ngIf="selectedValue=='thread'">
+            <div class="table" >
+                 <div class="forp" style="display:table-cell;width: 25%;">
+                     <p >User Name:</p>
+                     <p >Name of the post:</p>
+                     <p >Data of the post:</p>
+                     <p >Sub-Forum name:</p>
+                 </div>
+                 <div class="forinput" >
+                     <form (ngSubmit)="onSubmit(fm)" #fm="ngForm">
+                            <div class="form-group">
+                                <input type="text"  class="form-control" ngModel name="username" >
+                            </div>
+                            <div class="form-group">
+                                <input type="text"  class="form-control" ngModel name="namePost">
+                            </div>   
+                            <div class="form-group">
+                                <input type="text"  class="form-control" ngModel name="dataPost" >
+                            </div>
+                            <div class="form-group">
+                                <input type="text"  class="form-control" ngModel name="subForumName">
+                            </div>  
+                            <input type="submit" />
+    
+                      </form>
+                	</div>
+                </div>
+    </div>
+        <div *ngIf="selectedValue=='subforum'">
+        <div class="table" >
+                 <div class="forp" style="display:table-cell;width: 25%;">
+                     <p >Name:</p>
+                     <p >Category:</p>
+                 </div>
+                 <div class="forinput" >
+                     <form (ngSubmit)="onSubmit(fm)" #fm="ngForm">
+                         <div class="form-group">
+                              <input type="text"  class="form-control" ngModel name="subForumName" >
+
+                          </div>
+                          <div class="form-group">
+                            <input type="text"  class="form-control" ngModel name="category">
+
+                         </div>  
+                         <input type="submit" />
+      
+                      </form>
+                 </div>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+    <div *ngIf="selectedValue=='thread'" style="margin-top:30px;margin: 30px;">
+        <app-threadlist [Threads]="Threads"></app-threadlist>
+      </div>
+    <div *ngIf="selectedValue=='subforum'" style="margin-top:30px;margin: 30px;">
+        <app-subforumlist [SubForums]="SubForums"></app-subforumlist>
+    </div>
+    
+</div>

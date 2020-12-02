@@ -1,0 +1,58 @@
+
+
+  #corners {
+    border-radius: 25px;
+    padding: 20px; 
+    width: 70%;
+    height: 550px;  
+    background-image: linear-gradient(to right,rgb(89, 0, 255) ,rgb(130, 213, 238)); /* Standard syntax (must be last) */
+    margin-top:50px;
+    margin-bottom:50px;
+
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .button {
+    background-color: Transparent;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+  }
+.wrapper button:hover
+{
+    text-decoration:underline;
+}
+  .wrapper {
+    text-align: center;
+    margin-top:50px; 
+
+}
+.center{
+    margin-top:50px;
+    margin-left:270px; 
+
+}
+input[type=text], input[type=submit] ,input[type=password]{
+    display:inline-block;
+    padding: 12px;
+    margin: 8px 0;
+    display: block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 25px;
+
+  }
+  input[type=text],input[type=password]
+  {
+    width: 60%;
+
+  }
+  input[type=submit],input[type=password]
+  {
+    width: 40%;
+
+  }

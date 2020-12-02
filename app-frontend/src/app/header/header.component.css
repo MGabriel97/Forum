@@ -1,0 +1,30 @@
+#left {
+    margin-left: 50px auto;
+
+    text-align: 50px left;
+}
+#right
+{
+    text-align: right;
+    margin-right: auto;
+}
+#left, #right {
+    position: relative;
+        display: inline-block;
+        width: 50%;
+        margin-top: 0;
+        
+        }
+        button {
+            background-color: #04344c; /* Green */
+            border: none;
+            color: white;
+            padding: 7px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border: 1px solid #42bdcd;
+            display: inline-block;
+          
+          }

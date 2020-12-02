@@ -1,0 +1,83 @@
+
+
+<div class="w3-container" id="about">
+    <div class="w3-content"  id="corners">
+        <p >{{profileUser.username}}</p>
+          <div *ngIf=retrievedImage>           
+            <div class="container row">
+                <div class="col-md-6">
+                    <input  type="file" style="display:none" (change)="onFileChanged($event)" accept="image/*" #file >
+                </div>
+            </div>
+            <img   (click)="file.click()" [src]="retrievedImage" style="cursor: pointer;float:left;">   
+        </div>
+        <dl >
+            <br>    
+            <div style="float:left;"> 
+            <dt >Join Date:</dt>
+            <dd >{{profileUser.joinDate}}</dd>
+            <dt >E-mail:</dt>
+            <dd >{{profileUser.email}}</dd>
+            <dt >Location:</dt>
+            <dd >{{profileUser.location}}</dd> 
+          
+          </div>     
+          <app-modal-edit style="float:left"></app-modal-edit>
+          </dl>
+    </div>
+    <div class="allposts">
+      <p class="activity" style="margin-bottom: 15px;">My activity</p>
+    <div class="post" *ngFor="let i of Post">
+      <div class="data">
+        <p>{{i.dateTime}}</p>
+      </div>
+        <div class="postcolor">
+          <div class="postmargin">
+            <div class="postleft">
+              <img [src]="retrievedImage">
+          
+             
+          </div>
+        <div class="postright">
+            <div class="replied" style="display:inline;">
+              <p style="display:inline;margin:0;color:blue;font-size: 12px;">{{i.user.username}} </p> 
+              <p style="display:inline;margin:0;font-size: 12px; ">created post </p>
+              <p style="display:inline;margin:0;color:blue;font-size: 12px; ">{{i.namePost}}</p>
+            </div>
+            <p style="margin:0;font-size: 12px;margin-top:10px;margin-bottom:10px;" >{{i.dataPost}}</p>
+
+        </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    
+    <div class="post" *ngFor="let i of Reply">
+      <div class="data">
+        <p>{{i.dateTime}}</p>
+      </div>
+        <div class="postcolor">
+          <div class="postmargin">
+            <div class="postleft">
+                <img [src]="retrievedImage">
+            
+               
+            </div>
+          <div class="postright">
+              <div class="replied" style="display:inline;">
+                <p style="display:inline;margin:0;color:blue;font-size: 12px;">{{i.user.username}} </p> 
+                <p style="display:inline;margin:0;font-size: 12px; ">replied to post </p>
+                <p style="display:inline;margin:0;color:blue;font-size: 12px; ">{{i.post.namePost}}</p>
+              </div>
+              <p style="margin:0;font-size: 12px;margin-top:10px;margin-bottom:10px;" >{{i.dataPost}}</p>
+
+          </div>
+        </div>
+      </div>
+
+        </div>
+
+  </div>
+

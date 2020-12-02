@@ -1,0 +1,22 @@
+<div class="w3-container" id="about">
+    <div class="w3-content"  id="corners">
+      <div class="wrapper">
+        <button class="button">Login</button>
+        {{incorrectCredentials}}
+
+      </div>
+  <form (ngSubmit)="onSubmit(fm)" #fm="ngForm">
+    <div class="center">
+
+    <div class="form-group">
+      <input id="name" type="text" placeholder="Name" class="form-control" ngModel name="username">
+    </div>
+    <div class="form-group">
+        <input id="password"  type="password" placeholder="Password" class="form-control" ngModel name="password">
+      </div>
+
+      <input type="submit" />
+    </div>
+  </form>
+  </div>
+  </div>

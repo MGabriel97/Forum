@@ -1,0 +1,53 @@
+
+<div class="intable"  >
+    <div class="data" style="line-height: 50px;height:50px;margin-top:90px;border:1px solid black" >
+        <select [(ngModel)]="selectedValue" style="color:white;margin-left: 40px;">
+            <option style="display: inline;" *ngFor="let c of selectPost" [ngValue]="c" style="color:white">{{c}}</option>
+          </select>
+          <p style="display: inline;">from last </p>
+          <select  [(ngModel)]="selectedTime" style="color:white">
+            <option style="display: inline;" *ngFor="let c of selectTime" [ngValue]="c" style="color:white">{{c}}</option>
+          </select>
+          <button class="btn btn-primary"  style="margin-left: 15px;margin-bottom: 5px;" (click)="searchPosts()">
+            <div>Search</div>
+          </button>
+        
+      </div>
+  <div *ngIf="selectedValue=='posts'">
+    <div class="post" *ngFor="let i of posts" >
+    
+      <div class="data" >
+       <p>{{i.dateTime}}</p>
+     </div>
+     <div class="postcolor">
+        <div class="postmargin">
+         <div class="postleft">
+            <dl >
+              <p >{{i.user.username}}</p>
+              <!--<img [src]="user.image">-->
+              <br>
+              <dt >Join Date:</dt>
+              <dd >{{i.user.joinDate}}</dd>
+              <dt >E-mail:</dt>
+              <dd >{{i.user.email}}</dd>
+              <dt >Location:</dt>
+              <dd >{{i.user.location}}</dd>
+           
+           </dl>
+         </div>
+       <div class="postright">
+          <dl>
+          <h2>{{i.namePost}}</h2>
+            <p>{{i.dataPost}}</p>
+        </dl>
+       </div>
+       </div>
+     </div>
+   </div>
+  </div>
+
+  <div *ngIf="selectedValue=='threads'">
+    <app-threadlist [Threads]="Threads"></app-threadlist>
+  </div>
+
+</div>

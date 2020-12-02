@@ -1,0 +1,20 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-title">Add a new Thread</h4>
+    
+  </div>
+  <form novalidate  #fm="ngForm">
+  <div class="modal-body">
+    <p><span class="text-primary">Thread name</span></p>
+    <div class="form-group">
+      <input id="subForumName" type="text" placeholder="Name" class="form-control"  ngModel name="subForumName">
+    </div>
+    <p><span class="text-primary">Thread description</span></p>
+    <div class="form-group">
+    <input id="description" type="text" placeholder="description" class="form-control" ngModel name="description" #myDiv>
+  </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancel</button>
+    <button type="button" class="btn btn-danger" (click)="modal.close('Ok click');onSubmit(fm);">Ok</button>
+  </div>
+  </form>

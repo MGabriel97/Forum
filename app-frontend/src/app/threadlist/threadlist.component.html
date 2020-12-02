@@ -1,0 +1,62 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<table class="table " >
+    <thead>
+      <tr>
+        <div  id="header">
+          
+          <div class="title">
+            <h6 style="color:white;margin-left: 10px;"><b>Title / Thread Starter <span (click)=sortByTitle() style="cursor: pointer;margin-left: 5px;" class="glyphicon glyphicon-sort"></span> 
+            </b></h6>
+          </div>
+          <div id="replies">
+            <h6 style="color:white;margin-left: 10px;"><b> Replies <span (click)=sortByReply() style="cursor: pointer;margin-left: 5px;" class="glyphicon glyphicon-sort"></span> </b>
+         </h6>
+
+         
+         </div>
+          <div class="lastpost">
+           <h6 style="color:white;margin-left: 10px;"><b>Last Post By <span (click)=sortByDate() style="cursor: pointer;margin-left: 5px;" class="glyphicon glyphicon-sort"></span> </b></h6>
+          </div>
+          <div class="subforum">
+            <h6 style="color:white;margin-left: 10px;"><b>Sub-Forum <span (click)=sortBySubForum() style="cursor: pointer;margin-left: 5px;" class="glyphicon glyphicon-sort"></span> </b></h6>
+
+           </div>
+        </div>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of Threads | paginate: config">
+        <div class="header">
+          <div class="title">
+            <div class="image">
+                <img [src]="image">              
+            </div>
+            <div class="titledata">
+              <a (click)="setPost($event,row)" style="color:#032891;font-size: 15px;" routerLinkActive="active current"  routerLink="/post"> {{row.namePost}}</a>
+              <br>
+              <p>Started by {{row.post.user.username}} at {{row.post.dateTime}} </p>
+          </div>
+          </div>
+          <div class="replies">
+            <p>Replies: {{row.count}} </p>
+          </div>
+          <div class="lastpost">
+            <p>Posted by {{row.name}}</p>
+            <br>
+            <p>{{row.dateTime}}</p>
+           </div>
+           <div class="subforum">
+            <p>Category: {{row.subForum.category}}</p>
+            <br>
+            <a style="color:#032891;font-size: 11px;" (click)="setSubforum($event,row.subForum,row.subForum.category)" routerLinkActive="active current"  routerLink="/thread"> {{row.subForum.subForumName}}</a>
+
+          </div>
+         </div>
+         
+       
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>

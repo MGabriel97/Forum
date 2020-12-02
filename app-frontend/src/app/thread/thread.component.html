@@ -1,0 +1,64 @@
+
+<div class="threads">
+  <div class="tables">
+    <div class="path">
+       <span  (click)="goToForumPage()">Forum</span> > 
+       <span (click)="goToSubForumPage()" >{{category}}</span> > 
+       <span  (click)="goToSubThreads()"><b>{{subforum}}</b></span>
+    </div> 
+    <app-modal-thread *ngIf="auth=='true'"></app-modal-thread>
+  <table class="table " >
+    <thead>
+      <tr>
+        <div  id="header">
+          
+          <div class="title">
+            <h6 style="color:white;margin-left: 10px;"><b>Title / Thread Starter
+            
+            </b></h6>
+          </div>
+          <div id="replies">
+            <h6 style="color:white;margin-left: 10px;"><b> Replies 
+             
+            </b> 
+            </h6>
+         </div>
+          <div class="lastpost">
+           <h6 style="color:white;margin-left: 10px;"><b>Last Post By
+          
+           </b></h6>
+          </div>
+        </div>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of Threads | paginate: config">
+        <div class="header">
+          <div class="title">
+            <div class="image">
+                <img [src]="image">              
+            </div>
+            <div class="titledata">
+              <a (click)="setPost($event,row)" style="color:#032891;font-size: 15px;" routerLinkActive="active current"  routerLink="/post"> {{row.namePost}}</a>
+              <br>
+              <p>Started by {{row.post.user.username}} at {{row.post.dateTime}} </p>
+          </div>
+          </div>
+          <div class="replies">
+            <p>Replies: {{row.count}} </p>
+          </div>
+          <div class="lastpost">
+            <p>Posted by {{row.name}}</p>
+            <br>
+            <p>{{row.dateTime}}</p>
+           </div>
+         </div>
+       
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+
+  </div>
+</div>
+ 

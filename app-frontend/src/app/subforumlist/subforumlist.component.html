@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<table class="table " >
+    <thead>
+      <tr>
+        <div  id="header">
+          
+          <div class="title">
+            <h6 style="color:white;margin-left: 10px;"><b>Sub-Forums <span (click)=sortByName() style="cursor: pointer;margin-left: 5px;" class="glyphicon glyphicon-sort"></span></b></h6>
+          </div>
+          <div id="replies">
+            <h6 style="color:white;margin-left: 10px;"><b> Posts <span (click)=sortByPosts() style="cursor: pointer;margin-left: 5px;" class="glyphicon glyphicon-sort"></span> </b> </h6>
+         </div>
+          <div class="lastpost">
+           <h6 style="color:white;margin-left: 10px;"><b>Last Post <span (click)=sortByLastPost() style="cursor: pointer;margin-left: 5px;" class="glyphicon glyphicon-sort"></span></b></h6>
+          </div>
+        </div>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of SubForums | paginate: config">
+        <div class="header">
+          <div class="title">
+            <div class="titledata">
+              <a id="{{row.id}}" style="color:#032891;font-size: 15px;" (click)="setSubforum($event,row)" routerLinkActive="active current"  routerLink="/thread"> {{row.subForumName}}</a>
+              <br>
+              <p>About this Sub-Forum {{row.description}}</p>
+          </div>
+          </div>
+          <div class="replies">
+            <p>Posts: {{row.count}} </p>
+          </div>
+          <div class="lastpost">
+            <div  *ngIf="row.name">
+            <p>Posted by {{row.name}}</p>
+            <p>{{row.dateTime}}</p>
+            </div>
+            <div  *ngIf="!row.name">
+              <p >No posts</p>
+              <p >Nobody post in this Sub-Forum yet</p>
+
+              </div>
+           
+            
+           </div>
+         </div>
+       
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>

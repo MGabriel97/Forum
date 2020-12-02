@@ -1,0 +1,60 @@
+  <div class="subforum">
+    <div class="tables">
+      <div class="path">
+    <span  (click)="goToForumPage()">Forum</span> > <span (click)="goToSubForumPage()"><b>{{category}}</b></span>
+        </div>
+        <app-modal-subforum *ngIf="auth=='true'"></app-modal-subforum>
+
+    <table class="table " >
+      <thead>
+        <tr>
+          <div  id="header">
+            
+            <div class="title">
+              <h6 style="color:white;margin-left: 10px;"><b>Sub-Forums</b></h6>
+            </div>
+            <div id="replies">
+              <h6 style="color:white;margin-left: 10px;"><b> Posts </b> </h6>
+           </div>
+            <div class="lastpost">
+             <h6 style="color:white;margin-left: 10px;"><b>Last Post</b></h6>
+            </div>
+          </div>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of SubForums | paginate: config">
+          <div class="header">
+            <div class="title">
+              <div class="titledata">
+                <a id="{{row.id}}" style="color:#032891;font-size: 15px;" (click)="setSubforum($event,row)" routerLinkActive="active current"  routerLink="/thread"> {{row.subForumName}}</a>
+                <br>
+                <p>About this Sub-Forum {{row.description}}</p>
+            </div>
+            </div>
+            <div class="replies">
+              <p>Posts: {{row.count}} </p>
+            </div>
+            <div class="lastpost">
+              <div  *ngIf="row.name">
+              <p>Posted by {{row.name}}</p>
+              <p>{{row.dateTime}}</p>
+              </div>
+              <div  *ngIf="!row.name">
+                <p >No posts</p>
+                <p >Nobody post in this Sub-Forum yet</p>
+
+                </div>
+             
+              
+             </div>
+           </div>
+         
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+
+    </div>
+  </div>
+   

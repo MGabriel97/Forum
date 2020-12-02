@@ -1,0 +1,100 @@
+.subforum {
+    height: auto;
+    margin: 35px;
+    margin-top: 125px;
+    background-color: #eeeeee;
+
+  }
+  table  {
+    border: 1px solid grey;
+    border-collapse: collapse;
+  }
+.table
+{
+    width: 100%;
+    margin-top:25px; 
+
+}
+
+.title,.replies,.lastpost{
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding: 5px;
+}
+.tables
+{
+    margin: 25px;
+
+}
+
+.header
+{
+    display: table;
+    width: 100%;
+    background-color: #ffffef;
+}
+.title
+{
+    display: table-cell;
+    width: 60%;
+}
+.replies
+{
+    display: table-cell;
+    width: 20%;
+    background-color: #f4f4fc;
+}
+#replies
+{
+    display: table-cell;
+    width: 20%;
+}
+.lastpost
+{
+    display: table-cell;
+    width: 20%;
+
+}
+#header
+{
+    display: table;
+    width: 100%;
+    background-color:#025d81;
+}
+
+
+.titledata
+{
+    width: 90%;
+    display: table-cell;
+    position:relative;
+}
+.titledata p,a
+{
+    float:left;
+    padding: 0px;
+    margin: 0px;
+    margin-top:-15px;
+
+   font-size: 11px;
+   margin-left: 10px;
+
+}
+.lastpost p
+{
+    float:left;
+    padding: 0px;
+    margin: 0px;
+
+   font-size: 11px;
+   margin-left: 10px;
+}
+.replies p
+{
+    float:left;
+    padding: 0px;
+    margin: 0px;
+
+   font-size: 11px;
+   margin-left: 10px;
+}

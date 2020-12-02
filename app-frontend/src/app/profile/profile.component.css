@@ -1,0 +1,120 @@
+
+#about {
+  height: auto;
+  margin-top:50px;
+  background-color: inherit;
+}
+  #corners {
+    float:left;
+    border-radius: 25px;
+    padding: 20px; 
+    width: 22%;
+    background-image: linear-gradient(to right,rgb(89, 0, 255) ,rgb(130, 213, 238)); /* Standard syntax (must be last) */
+    margin-top:50px;
+    margin-left: 25px;
+
+  }
+
+  
+  dl {
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+
+  }
+  dt {
+    float: left;
+    width: 40%;
+    padding: 0;
+    margin: 0;
+    font-size:12px
+  }
+  dd {
+    float: left;
+    width: 60%;
+    padding: 0;
+    margin: 0;
+    font-size:12px
+  }
+  img{
+    max-height: 150px; 
+    max-width: 150px;   
+
+  }
+
+
+.allposts
+{
+  margin-top: 50px;
+}
+.activity
+{
+    height: auto;
+    float:right;
+    margin-left: 50px;
+    margin-right: 50px;
+    width: 66%;
+}
+.post
+{
+    height: auto;
+    float:right;
+    margin-left: 50px;
+    margin-right: 50px;
+    width: 66%;
+    border:  solid 1px black;
+    margin-bottom: 10px;
+
+}
+.data
+{
+    background-color:#025d81; /* For browsers that do not support gradients */
+
+    height: 10%;
+}
+.postcolor
+{
+    margin-top: -15px;
+    background-color:#f2f6f8;
+
+    height: 100%;
+    width: 100%;
+  
+}
+.postmargin
+{
+   display: table; /* Make the container element behave like a table */
+
+    margin-left:10px;
+
+}
+
+
+.postleft
+{
+  display: table-cell; /* Make elements inside the container behave like table cells */
+
+
+    width: 7%;
+}
+.postright
+{
+  display: table-cell; /* Make elements inside the container behave like table cells */
+
+    background-color:#f2f6f8; /* For browsers that do not support gradients */
+    width: 93%;
+
+  }
+.postright h2,p
+{
+  margin-left: 20px;
+}
+
+.postleft img{
+  margin:8px;
+  
+  max-width: 50px;
+  max-height:100px;
+ 
+}

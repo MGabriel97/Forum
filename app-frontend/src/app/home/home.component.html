@@ -1,0 +1,53 @@
+<div class="subforum">
+    <div class="tables">
+    <app-modal  *ngIf="auth=='true'"></app-modal>
+    <table class="table " *ngFor="let category of categories" >
+      <thead>
+        <tr>
+          <div  id="header">
+            
+            <div class="title">
+              <h6 style="color:white;margin-left: 10px;" (click)="goToSubForumPage($event,category)"><b style="cursor: pointer;">{{category}}</b></h6>
+            </div>
+            <div id="replies">
+              <h6 style="color:white;margin-left: 10px;"><b> Posts </b> </h6>
+           </div>
+            <div class="lastpost">
+             <h6 style="color:white;margin-left: 10px;"><b>Last Post</b></h6>
+            </div>
+          </div>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of SubForums ">
+          <div class="header">
+            <div class="title" *ngIf="category==row.category">
+                <div class="titledata">
+                    <a id="{{row.id}}" style="color:#032891;font-size: 15px;" (click)="setSubforum($event,row,category)" routerLinkActive="active current"  routerLink="/thread"> {{row.subForumName}}</a>
+                    <br>
+                    <p>{{row.description}}</p>
+                </div>
+                </div>
+                    <div class="replies" *ngIf="category==row.category">
+                    <p>Posts: {{row.count}} </p>
+                </div>
+                <div class="lastpost" *ngIf="category==row.category">
+                  <div  *ngIf="row.name">
+                    <p>Posted by {{row.name}}</p>
+                    <p>{{row.dateTime}}</p>
+                    </div>
+                    <div  *ngIf="!row.name">
+                      <p >No posts</p>
+                      <p >Nobody post in this Sub-Forum yet</p>
+      
+                      </div>
+             </div>
+           </div>
+         
+        </tr>
+      </tbody>
+    </table>
+
+    </div>
+  </div>
+   
